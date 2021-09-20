@@ -22,8 +22,8 @@ function App() {
 
   return (
     <>
-      Bonjour
       <Nav setUser={setUser}/>
+      Bonjour
       {/* <Main/> */}
     </>
   );
