@@ -19,7 +19,7 @@ function NavBar({ setUser }) {
       <div>
         {/* <Menu>
           <Menu.Item> 
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/">NFL</NavLink>
           </Menu.Item>
           <Menu.Item>
             <NavLink to="/search">Search</NavLink>
