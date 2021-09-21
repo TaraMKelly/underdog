@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Login from "./Login"
 // import { Switch, Route } from "react-router-dom";
-// import Main from './Main'
+import Main from './Main'
 import Nav from "./Nav";
 // import 'semantic-ui-css/semantic.min.css'
 
@@ -23,8 +23,7 @@ function App() {
   return (
     <>
       <Nav setUser={setUser}/>
-      Bonjour
-      {/* <Main/> */}
+      <Main />
     </>
   );
 }
