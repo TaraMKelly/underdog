@@ -1,10 +1,11 @@
 // import { useState, useEffect } from 'react'
 
 
-function NFLCard() {
+function NFLCard( {game} ) {
+    console.log(game)
     return (
         <div>
-            bonjour
+            <h3>{game.away_team} vs {game.home_team}</h3>
         </div>
     )
 }
