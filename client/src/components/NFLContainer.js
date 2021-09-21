@@ -10,12 +10,12 @@ function NFLContainer() {
             .then(res => res.json())
             .then((data) => setGames(data))
     }, [])
-    // console.log(games)
+
 
     return (
         <div>
             <h1>NFL</h1>
-            { games.map(game => <NFLCard key={game.id} game ={ game } />) }
+            { games.map(game => <NFLCard key={game.id} game ={game} />) }
         </div>
     )
 }

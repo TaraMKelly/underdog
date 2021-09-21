@@ -1,11 +1,23 @@
 // import { useState, useEffect } from 'react'
 
 
-function NFLCard( {game} ) {
-    console.log(game)
+function NFLCard({ game }) {
+    let bookMakers = game.bookmakers.map(bookmaker => bookmaker)
+    let unibet = bookMakers[0]
+    let uniMarket = unibet.markets.map(market => market)
+    let moneyLine = uniMarket[0]
+    let spread = uniMarket[1]
+    let mLOutcomes = moneyLine.outcomes.map(outcome => outcome)
+    let awayML = mLOutcomes[0]
+    let homeML = mLOutcomes[1]
+    let spreadOutcomes = spread.outcomes.map(outcome => outcome)
+    let awaySpr = spreadOutcomes[0]
+    let homeSpr = spreadOutcomes[1]
+
+
     return (
         <div>
-            <h3>{game.away_team} vs {game.home_team}</h3>
+            <h3>{awayML.name} vs {homeML.name}</h3>
         </div>
     )
 }
