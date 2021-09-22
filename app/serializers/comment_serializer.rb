@@ -1,3 +1,5 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :game_id, :user_id, :comment
+  attributes :id, :comment
+  has_one :user
+  has_one :game
 end
