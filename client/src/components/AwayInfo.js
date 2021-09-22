@@ -6,7 +6,7 @@ function AwayInfo({ awayML, awaySpr }) {
     return (
         <div>
             <h2>{awaySpr.name}</h2>
-            <p>spread: {awaySpr.point} {awaySpr.price}</p>
+            <p>point spread: {awaySpr.point}    {awaySpr.price}</p>
             <p>money line: {awayML.price}</p>
         </div>
     )

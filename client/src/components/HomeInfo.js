@@ -6,7 +6,7 @@ function HomeInfo({ homeML, homeSpr }) {
     return (
         <div>
             <h2>{homeSpr.name}</h2>
-            <p>spread: {homeSpr.point} {homeSpr.price}</p>
+            <p>point spread: {homeSpr.point}    {homeSpr.price}</p>
             <p>money line: {homeML.price}</p>
         </div>
     )

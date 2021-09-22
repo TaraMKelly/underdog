@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :games
+  resources :comments
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'
   post '/login', to: 'sessions#create'
