@@ -1,3 +1,5 @@
+import AwayInfo from "./AwayInfo"
+import HomeInfo from "./HomeInfo"
 // import { useState, useEffect } from 'react'
 
 
@@ -17,7 +19,10 @@ function NFLCard({ game }) {
 
     return (
         <div>
-            <h3>{awayML.name} vs {homeML.name}</h3>
+            <AwayInfo awayML={awayML} awaySpr={awaySpr}/>
+            @
+            <HomeInfo homeML={homeML} homeSpr={homeSpr}/>
+            <h3>a link to discussion</h3>
         </div>
     )
 }
