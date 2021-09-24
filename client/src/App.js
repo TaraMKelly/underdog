@@ -7,9 +7,16 @@ import GameContainer from "./components/GameContainer";
 import CommentForum from "./components/CommentForum";
 // import 'semantic-ui-css/semantic.min.css'
 
-
 function App() {
   const [user, setUser] = useState(null);
+  const [nflGames, setGames] = useState([])
+  
+  const nfl_odds_url = `https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=${process.env.REACT_APP_ODDS}&regions=us&markets=h2h,spreads&oddsFormat=american`
+  useEffect(() => {
+      fetch(nfl_odds_url)
+          .then(res => res.json())
+          .then((data) => setGames(data))
+  }, [])
 
   useEffect(() => {
     // auto-login
@@ -30,7 +37,7 @@ function App() {
           <Main user={user} />
         </Route>
         <Route exact path="/nfl">
-          <GameContainer />
+          <GameContainer nflGames={nflGames}/>
         </Route>
         {/* <Route path="/mlb">
           <GameContainer />
