@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 
 function GameCard({ game }) {
-    console.log(game)
+    // console.log(game)
     let bookMakers = game.bookmakers.map(bookmaker => bookmaker)
     let unibet = bookMakers[0]
     let uniMarket = unibet.markets.map(market => market)

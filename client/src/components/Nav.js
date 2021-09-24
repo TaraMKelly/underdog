@@ -1,21 +1,22 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import {useHistory} from 'react-router-dom'
 // import styled from "styled-components";
 // import { Menu } from 'semantic-ui-react'
 
 function NavBar({ setUser }) {
 
+  let history=useHistory()
+
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser(null);
+        history.push('/')
       }
     });
   }
-
-
   return (
-
       <nav>
         <Link to="/">Home</Link>
         <Link to="/nfl">NFL</Link>
@@ -23,7 +24,6 @@ function NavBar({ setUser }) {
         <Link>EPL</Link> */}
         <button onClick={handleLogoutClick}>Logout</button> 
       </nav>
-
   );
 }
 // const Logo = styled.h1`
