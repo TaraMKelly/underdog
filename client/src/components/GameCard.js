@@ -1,9 +1,13 @@
 import AwayInfo from "./AwayInfo"
 import HomeInfo from "./HomeInfo"
+import { Link } from 'react-router-dom'
 // import { useState, useEffect } from 'react'
+// import CommentForum from "./CommentForum"
 
 
-function NFLCard({ game }) {
+
+function GameCard({ game }) {
+    console.log(game)
     let bookMakers = game.bookmakers.map(bookmaker => bookmaker)
     let unibet = bookMakers[0]
     let uniMarket = unibet.markets.map(market => market)
@@ -22,9 +26,9 @@ function NFLCard({ game }) {
             <AwayInfo awayML={awayML} awaySpr={awaySpr}/>
             @
             <HomeInfo homeML={homeML} homeSpr={homeSpr}/>
-            <h3>a link to discussion</h3>
+            <Link to="/comments">Discuss Your Bets</Link>
         </div>
     )
 }
 
-export default NFLCard
+export default GameCard

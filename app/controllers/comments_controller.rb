@@ -6,13 +6,13 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 # GET /comments
 def index
     comments = Comment.all
-    render json: comments, status: :ok, include: :users
+    render json: comments, status: :ok, include: [:user, :game]
 end
 
 # GET /comments/:id
 def show
     comment = find_comment
-    ender json: comment, status: :ok, include: :users
+    ender json: comment, status: :ok, include: [:user, :game]
 end
 
 # POST /comments

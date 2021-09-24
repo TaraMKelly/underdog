@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react"
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Login from "./components/Login"
 import Main from './components/Main'
 import Nav from "./components/Nav";
+import GameContainer from "./components/GameContainer";
+import CommentForum from "./components/CommentForum";
 // import 'semantic-ui-css/semantic.min.css'
 
 
@@ -21,8 +24,27 @@ function App() {
 
   return (
     <>
-      <Nav setUser={setUser}/>
-      <Main />
+      <Nav setUser={setUser} />
+      <Switch>
+        <Route exact path="/">
+          <Main user={user} />
+        </Route>
+        <Route exact path="/nfl">
+          <GameContainer />
+        </Route>
+        {/* <Route path="/mlb">
+          <GameContainer />
+        </Route>
+        <Route path="/epl">
+          <GameContainer />
+        </Route> */}
+        <Route exact path="/comments">
+          <CommentForum />
+        </Route>
+        <Route path="*">
+          <h1>404 not found</h1>
+        </Route>
+      </Switch>
     </>
   );
 }

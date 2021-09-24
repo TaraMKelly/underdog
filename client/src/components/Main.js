@@ -1,13 +1,13 @@
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import NFLContainer from './NFLContainer'
+// import GameContainer from './GameContainer'
+// import CommentForum from './CommentForum'
 
 
-function Main() {
+
+function Main({user}) {
     return (
         <div>
-            <NFLContainer />
-            {/* <MLBContainer /> */}
-            {/* <EPLContainer /> */}
+            Welcome {user.username}
         </div>
     )
 }

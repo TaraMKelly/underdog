@@ -1,5 +1,5 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 // import styled from "styled-components";
 // import { Menu } from 'semantic-ui-react'
 
@@ -13,29 +13,17 @@ function NavBar({ setUser }) {
     });
   }
 
+
   return (
-    <header>
-      {/* <Logo style={{textAlign: "center"}}>Alcoholics not-Anonymous</Logo> */}
-      <div>
-        {/* <Menu>
-          <Menu.Item> 
-            <NavLink to="/">NFL</NavLink>
-          </Menu.Item>
-          <Menu.Item>
-            <NavLink to="/search">Search</NavLink>
-          </Menu.Item>
-          <Menu.Item>
-            <NavLink to="/feed">Feed</NavLink>
-          </Menu.Item>
-          <Menu.Item>
-            <NavLink to="/create">Create a Drink</NavLink>
-          </Menu.Item>
-          <Menu.Item position="right"> */}
-            <button onClick={handleLogoutClick}>Logout</button>
-          {/* </Menu.Item>
-        </Menu> */}
-      </div>
-    </header>
+
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/nfl">NFL</Link>
+        {/* <Link>MLB</Link>
+        <Link>EPL</Link> */}
+        <button onClick={handleLogoutClick}>Logout</button> 
+      </nav>
+
   );
 }
 // const Logo = styled.h1`
