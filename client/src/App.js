@@ -53,7 +53,7 @@ function App() {
           <GameContainer />
         </Route> */}
         <Route exact path="/comments">
-          <CommentPage />
+          <CommentPage nflGames={nflGames} user={user}/>
         </Route>
         <Route path="*">
           <h1>404 not found</h1>

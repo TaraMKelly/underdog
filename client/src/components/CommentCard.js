@@ -1,8 +1,8 @@
 
-function CommentCard({comment}) {
+function CommentCard({comment, user}) {
     return (
         <div>
-            Username: {comment.comment}
+            {user.username}: {comment.comment}
         </div>
     )
 }
