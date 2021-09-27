@@ -9,7 +9,6 @@ function GameContainer({user}) {
             .then(res => res.json())
             .then((data) => setGames(data))
     }, [])
-    console.log(nflGames)
 
     return (
         <div>

@@ -1,19 +1,19 @@
 import AwayInfo from "./AwayInfo"
 import HomeInfo from "./HomeInfo"
 // import { Link } from 'react-router-dom'
-// import CommentPage from "./CommentPage"
+import CommentPage from "./CommentPage"
 import { useState, useEffect } from 'react'
 
 
 function GameCard({ nflGame, user }) {
     const awayTeam = nflGame.away_team
-    const awayMl = nflGame.away_ml
-    const awaySpr = nflGame.away_spread
-    const awayPrice =  nflGame.away_price
+    const awayMl = parseInt(nflGame.away_ml, 10)
+    const awaySpr = parseInt(nflGame.away_spread, 10)
+    const awayPrice =  parseInt(nflGame.away_price, 10)
     const homeTeam = nflGame.home_team
-    const homeMl = nflGame.home_ml
-    const homeSpr = nflGame.home_spread
-    const homePrice =  nflGame.home_price
+    const homeMl = parseInt(nflGame.home_ml, 10)
+    const homeSpr = parseInt(nflGame.home_spread, 10)
+    const homePrice =  parseInt(nflGame.home_price, 10)
 
 
 
@@ -22,7 +22,7 @@ function GameCard({ nflGame, user }) {
             <AwayInfo awayTeam={awayTeam} awayMl={awayMl} awaySpr={awaySpr} awayPrice={awayPrice} />
             @
             <HomeInfo homeTeam={homeTeam} homeMl={homeMl} homeSpr={homeSpr} homePrice={homePrice}/>
-            {/* <CommentPage homeSpr={homeSpr} awaySpr={awaySpr} user={user}/> */}
+            <CommentPage nflGame={nflGame} user={user}/>
         </div>
     )
 }

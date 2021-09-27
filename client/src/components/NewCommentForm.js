@@ -1,25 +1,11 @@
 import { useState, useEffect } from 'react'
 
-function NewCommentForm({ newGame, comments, setComments, user, homeSpr, awaySpr }) {
+function NewCommentForm({ nflGame, comments, setComments, user }) {
     const [text, setText] = useState("")
     // const [newGame, setNewGame] = useState([])
 
     async function onCommentSubmit(e) {
         e.preventDefault()
-        // fetch('/games', {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         "Accept": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         home_team: homeSpr.name,
-        //         away_team: awaySpr.name
-        //     })
-        // })
-        // .then(res => res.json())
-        // .then(data => setNewGame(data))
-
         const res = await fetch('/comments', {
             method: "POST",
             headers: {
@@ -28,7 +14,7 @@ function NewCommentForm({ newGame, comments, setComments, user, homeSpr, awaySpr
             },
             body: JSON.stringify({
                 comment: text,
-                game_id: newGame.id,
+                game_id: nflGame.id,
                 user_id: user.id
             })
         })

@@ -2,7 +2,7 @@
 function CommentCard({comment, userName, user}) {
     return (
         <div>
-            {user.username}: {comment.comment}
+            {comment.user.username}: {comment.comment}
         </div>
     )
 }
