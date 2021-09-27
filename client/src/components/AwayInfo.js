@@ -1,13 +1,13 @@
 
 
-function AwayInfo({ awayML, awaySpr }) {
+function AwayInfo({ awayTeam, awayMl, awaySpr, awayPrice }) {
 //add date
     return (
         <div>
-            <h2>{awaySpr.name}</h2>
-            <p>point spread: {awaySpr.point > 0 ? `+${awaySpr.point}` : awaySpr.point} 
-            {awaySpr.price > 0 ? `+${awaySpr.price}` : awaySpr.price}</p>
-            <p>money line: {awayML.price > 0 ? `+${awayML.price}` : awayML.price}</p>
+            <h2>{awayTeam}</h2>
+            <p>point spread: {awaySpr} {awayPrice} </p>
+            {/* {awaySpr.price > 0 ? `+${awaySpr.price}` : awaySpr.price}</p> */}
+            <p>money line: {awayMl}</p>
         </div>
     )
 }

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :comments
   resources :games, only: [:index, :show, :create]
-
   get '/users', to: 'users#index'
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'

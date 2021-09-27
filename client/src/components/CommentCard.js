@@ -1,5 +1,5 @@
 
-function CommentCard({comment, user}) {
+function CommentCard({comment, userName, user}) {
     return (
         <div>
             {user.username}: {comment.comment}

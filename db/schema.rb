@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_22_184159) do
+ActiveRecord::Schema.define(version: 2021_09_27_141003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.string "comment"
     t.bigint "game_id", null: false
-    t.text "comment"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_comments_on_game_id"
@@ -26,8 +26,14 @@ ActiveRecord::Schema.define(version: 2021_09_22_184159) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string "home_team"
     t.string "away_team"
+    t.string "home_team"
+    t.string "away_ml"
+    t.string "home_ml"
+    t.string "away_spread"
+    t.string "home_spread"
+    t.string "away_price"
+    t.string "home_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,45 +1,47 @@
 import { useState, useEffect } from 'react'
 
-function NewCommentForm({ nflGames, comments, setComments, user }) {
+function NewCommentForm({ newGame, comments, setComments, user, homeSpr, awaySpr }) {
     const [text, setText] = useState("")
+    // const [newGame, setNewGame] = useState([])
 
-    function onSubmit(e) {
+    async function onCommentSubmit(e) {
         e.preventDefault()
-        fetch('/comments', {
+        // fetch('/games', {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         "Accept": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         home_team: homeSpr.name,
+        //         away_team: awaySpr.name
+        //     })
+        // })
+        // .then(res => res.json())
+        // .then(data => setNewGame(data))
+
+        const res = await fetch('/comments', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                Accept: "application/json"
+                "Accept": "application/json"
             },
             body: JSON.stringify({
                 comment: text,
-                game_id: nflGames.id,
+                game_id: newGame.id,
                 user_id: user.id
             })
         })
-            .then(res => res.json())
-            .then(data => {
-                setComments([...comments, data])
-                setText("")
-            })
-        fetch('/games', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            body: JSON.stringify({
-                home_team: nflGames.home_team,
-                away_team: nflGames.away_team
-            })
-        })
-
+        const parsedBody = await res.json()
+        setComments([...comments, parsedBody])
+        setText("")
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <input type="text" placeholder='Add a comment...' value={text} onChange={(e) =>
-                setText(e.target.value)} />
+        <form onSubmit={onCommentSubmit}>
+            <input type="text" placeholder='Add a comment...' value={text}
+                onChange={(e) => setText(e.target.value)}
+            />
             <div>
                 <button type="submit">Submit</button>
             </div>
