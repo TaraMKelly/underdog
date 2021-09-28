@@ -1,12 +1,7 @@
 
-function CommentCard({comment, nflGame, user, comments, setComments, handleDeleteComment}) {
+function CommentCard({comment, nflGame, user, handleDeleteComment}) {
 
     const id = comment.id
-
-    // function handleDeleteComment(id) {
-    //     const deletedComment = comments.filter((c) => c.id !==id)
-    //     setComments(deletedComment)
-    // }
 
     function deleteClick(e) {
         e.preventDefault()
@@ -19,8 +14,8 @@ function CommentCard({comment, nflGame, user, comments, setComments, handleDelet
     return (
         <div>
             {nflGame.id === comment.game_id ? `${comment.user.username}: ${comment.comment}` : null}
-            <button onClick={deleteClick}>X</button>
-            {/* {user.id === comment.user_id ? <button onClick={handleDeleteClick}>X</button> : null} */}
+            {nflGame.id === comment.game_id && user.id === comment.user_id ? 
+                <button onClick={deleteClick}>X</button> : null}
         </div>
     )
 }

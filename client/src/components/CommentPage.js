@@ -3,13 +3,11 @@ import CommentCard from "./CommentCard"
 import NewCommentForm from "./NewCommentForm"
 
 function CommentPage({user, nflGame, comments, setComments, handleDeleteComment}) {
-    console.log(nflGame)
-    console.log(comments)
 
     return (
         <div>
 
-            {comments.map(comment => <CommentCard key={comment.id} user={user} handleDeleteComment={handleDeleteComment} comment={comment} nflGame={nflGame} setComments={setComments} comments={comments} />)}
+            {comments.map(comment => <CommentCard key={comment.id} user={user} handleDeleteComment={handleDeleteComment} comment={comment} nflGame={nflGame} />)}
             <NewCommentForm comments={comments} setComments={setComments} nflGame={nflGame} user={user}/>
         </div>
     )
