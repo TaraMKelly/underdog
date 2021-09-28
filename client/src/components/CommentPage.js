@@ -2,25 +2,14 @@ import { useState, useEffect } from 'react'
 import CommentCard from "./CommentCard"
 import NewCommentForm from "./NewCommentForm"
 
-function CommentPage({user, nflGame}) {
-    const [comments, setComments] = useState([])
-    const [userName, setUserName] = useState("")
-
-    useEffect(() => {
-        fetch('/comments')
-            .then(res => res.json())
-            .then((data) => setComments(data))
-    }, [])
-
-    useEffect(() => {
-        fetch('/users')
-            .then(res => res.json())
-            .then((data) => setUserName(data))
-    }, [])
+function CommentPage({user, nflGame, comments, setComments}) {
+    console.log(nflGame)
+    console.log(comments)
 
     return (
         <div>
-            {comments.map(comment => <CommentCard key={comment.id} comment={comment} user={user} userName={userName}/>)}
+
+            {comments.map(comment => <CommentCard key={comment.id} user={user} comment={comment} nflGame={nflGame} setComments={setComments} comments={comments} />)}
             <NewCommentForm comments={comments} setComments={setComments} nflGame={nflGame} user={user}/>
         </div>
     )
