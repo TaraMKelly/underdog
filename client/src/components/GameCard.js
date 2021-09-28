@@ -5,7 +5,7 @@ import CommentPage from "./CommentPage"
 import { useState, useEffect } from 'react'
 
 
-function GameCard({ nflGame, user, comments, setComments }) {
+function GameCard({ nflGame, user, comments, setComments, handleDeleteComment }) {
     const awayTeam = nflGame.away_team
     const awayMl = parseInt(nflGame.away_ml, 10)
     const awaySpr = parseInt(nflGame.away_spread, 10)
@@ -20,7 +20,7 @@ function GameCard({ nflGame, user, comments, setComments }) {
             <AwayInfo awayTeam={awayTeam} awayMl={awayMl} awaySpr={awaySpr} awayPrice={awayPrice} />
             @
             <HomeInfo homeTeam={homeTeam} homeMl={homeMl} homeSpr={homeSpr} homePrice={homePrice} />
-            <CommentPage nflGame={nflGame} user={user} comments={comments} setComments={setComments} />
+            <CommentPage nflGame={nflGame} user={user} handleDeleteComment={handleDeleteComment} comments={comments} setComments={setComments} />
         </div>
     )
 }

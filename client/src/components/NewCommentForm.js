@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 
 function NewCommentForm({ nflGame, comments, setComments, user }) {
     const [text, setText] = useState("")
-    // const [newGame, setNewGame] = useState([])
 
     async function onCommentSubmit(e) {
         e.preventDefault()

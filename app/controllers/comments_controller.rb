@@ -38,7 +38,7 @@ end
 private
 
 def find_comment
-    comment.find(params[:id])
+    Comment.find(params[:id])
 end
 
 def comment_params

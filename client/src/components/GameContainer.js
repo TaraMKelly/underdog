@@ -16,12 +16,16 @@ function GameContainer({user}) {
             .then(res => res.json())
             .then((data) => setComments(data))
     }, [])
-    console.log(comments)
+
+    function handleDeleteComment(id) {
+        const deletedComment = comments.filter((c) => c.id !==id)
+        setComments(deletedComment)
+    }
 
     return (
         <div>
             <h1>NFL</h1>
-            { nflGames.map(nflGame => <GameCard key={nflGame.id} user={user} nflGame ={nflGame} comments={comments} setComments={setComments} />) }
+            { nflGames.map(nflGame => <GameCard key={nflGame.id} handleDeleteComment={handleDeleteComment} user={user} nflGame ={nflGame} comments={comments} setComments={setComments} />) }
         </div>
     )
 }

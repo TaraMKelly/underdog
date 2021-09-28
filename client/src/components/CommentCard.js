@@ -1,19 +1,25 @@
 
-function CommentCard({comment, nflGame, user, comments, setComments}) {
+function CommentCard({comment, nflGame, user, comments, setComments, handleDeleteComment}) {
 
-    function handleDeleteClick(id) {
+    const id = comment.id
+
+    // function handleDeleteComment(id) {
+    //     const deletedComment = comments.filter((c) => c.id !==id)
+    //     setComments(deletedComment)
+    // }
+
+    function deleteClick(e) {
+        e.preventDefault()
         fetch(`/comments/${id}`, {
-            method : "DELETE"
-        }).then((r) => {
-            if (r.ok && comments) {
-                setComments(comments.filter((c) => c.id !== id))
-            }
+            method: "DELETE"
         })
+        handleDeleteComment(id)
     }
 
     return (
         <div>
             {nflGame.id === comment.game_id ? `${comment.user.username}: ${comment.comment}` : null}
+            <button onClick={deleteClick}>X</button>
             {/* {user.id === comment.user_id ? <button onClick={handleDeleteClick}>X</button> : null} */}
         </div>
     )
