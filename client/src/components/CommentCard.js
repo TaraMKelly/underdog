@@ -18,33 +18,26 @@ function CommentCard({ comments, setComments, comment, nflGame, user, handleDele
         setEdit(!edit)
     }
 
+    function handleUpdatecomment(updatedComment) {
+        setComments((comments) =>
+            comments.map((comment) => {
+                return comment.id === updatedComment.id ? updatedComment : comment;
+            })
+        );
+    }
+
     function handleCommentEdit(e) {
         e.preventDefault()
         fetch(`/comments/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
-                "Accept": "application/json"
             },
-            body: JSON.stringify({
-                id: id,
-                comment: content,
-                game_id: nflGame.id,
-                user_id: user.id
-            })
+            body: JSON.stringify({ comment: content })
         })
-        .then((r) => r.json())
-        .then(newComment => {
-            const edited = [...comments].map(comment => {
-                if (id === newComment.id) {
-                    return newComment
-                } else {
-                    return comment
-                }
-            })
-            setComments(edited) 
-            setEdit(!edit)
-        })
+            .then((r) => r.json())
+            .then(handleUpdatecomment)
+        setEdit(!edit)
     }
 
     return (
