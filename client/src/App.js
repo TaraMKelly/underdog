@@ -9,16 +9,6 @@ import GameContainer from "./components/GameContainer";
 
 function App() {
   const [user, setUser] = useState(null);
-  // const [nflGames, setGames] = useState([])
-  // const [comments, setComments] = useState([])
-
-  // useEffect(() => {
-  //     fetch('/games')
-  //         .then(res => res.json())
-  //         .then((data) => setGames(data))
-  // }, [])
-  // console.log(nflGames)
-
 
   useEffect(() => {
     // auto-login

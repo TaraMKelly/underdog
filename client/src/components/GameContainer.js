@@ -18,8 +18,8 @@ function GameContainer({user}) {
     }, [])
 
     function handleDeleteComment(id) {
-        const deletedComment = comments.filter((c) => c.id !==id)
-        setComments(deletedComment)
+        const removeComment = comments.filter((c) => c.id !==id)
+        setComments(removeComment)
     }
 
     return (
