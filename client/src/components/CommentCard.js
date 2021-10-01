@@ -17,7 +17,7 @@ function CommentCard({ comments, setComments, comment, nflGame, user, handleDele
     function editComment() {
         setEdit(!edit)
     }
-
+    //move up to game container to clean up
     function handleUpdatecomment(updatedComment) {
         setComments((comments) =>
             comments.map((comment) => {

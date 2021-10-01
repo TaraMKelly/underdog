@@ -1,8 +1,7 @@
 import { useState } from "react"
-// import styled from "styled-components";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
-// import { Button } from "../styles";
+import Button from '@mui/material/Button'
 
 function Login({ onLogin }) {
     const [showLogin, setShowLogin] = useState(true);
@@ -16,9 +15,9 @@ function Login({ onLogin }) {
             {/* <Divider /> */}
             <p>
               Don't have an account? &nbsp;
-              <button onClick={() => setShowLogin(false)}>
+              <Button onClick={() => setShowLogin(false)}>
                 Sign Up
-              </button>
+              </Button>
             </p>
           </>
         ) : (
