@@ -35,46 +35,51 @@ function SignUpForm({ onLogin }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       {/* <FormField> */}
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          autoComplete="off"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+      <TextField
+        label="Username"
+        required
+        type="text"
+        id="username"
+        autoComplete="off"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
       {/* </FormField> */}
       {/* <FormField> */}
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete="current-password"
-        />
+      <TextField
+        label="Password"
+        required
+        type="password"
+        id="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        autoComplete="current-password"
+      />
       {/* // </FormField> */}
       {/* <FormField> */}
-        <label htmlFor="password">Password Confirmation</label>
-        <input
-          type="password"
-          id="password_confirmation"
-          value={passwordConfirmation}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-          autoComplete="current-password"
-        />
-        <Button 
-          variant="contained" 
-          color="primary" 
-          size="small"
-          type="submit">
-          Sign Up
-        </Button>
+      <TextField
+        label="Confirm Password"
+        required
+        type="password"
+        id="password_confirmation"
+        value={passwordConfirmation}
+        onChange={(e) => setPasswordConfirmation(e.target.value)}
+        autoComplete="current-password"
+      />
+
+
+      <Button
+        variant="contained"
+        color="primary"
+        size="small"
+        type="submit">
+        Sign Up
+      </Button>
       {/* // </FormField> */}
       {/* <FormField> */}
-        {/* {errors.map((err) => (
+      {/* {errors.map((err) => (
           <Error key={err}>{err}</Error>
         ))} */}
       {/* </FormField> */}
@@ -82,4 +87,4 @@ function SignUpForm({ onLogin }) {
   );
 }
 
-export default SignUpForm; 
+export default SignUpForm;
