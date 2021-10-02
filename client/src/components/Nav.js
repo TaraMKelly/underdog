@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom'
+import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -20,11 +21,15 @@ function NavBar({ setUser }) {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Link to="/">Home</Link>
-        <Link to="/nfl">NFL</Link>
-        {/* <Link>MLB</Link>
+        <Typography type="title" color="inherit" style={{ flex: 1 }}>
+          <Link to="/">Home</Link>
+          <Link to="/nfl">NFL</Link>
+          {/* <Link>MLB</Link>
         <Link>EPL</Link> */}
-        <Button size="small" variant="contained" onClick={handleLogoutClick}>Logout</Button>
+        </Typography>
+        <div>
+          <Button size="small" color="inherit" onClick={handleLogoutClick}>Logout</Button>
+        </div>
       </Toolbar>
     </AppBar>
   );
