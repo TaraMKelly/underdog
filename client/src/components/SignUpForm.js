@@ -36,8 +36,8 @@ function SignUpForm({ onLogin }) {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      {/* <FormField> */}
       <TextField
+        variant="filled"
         label="Username"
         required
         type="text"
@@ -46,9 +46,8 @@ function SignUpForm({ onLogin }) {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      {/* </FormField> */}
-      {/* <FormField> */}
       <TextField
+        variant="filled"
         label="Password"
         required
         type="password"
@@ -57,9 +56,8 @@ function SignUpForm({ onLogin }) {
         onChange={(e) => setPassword(e.target.value)}
         autoComplete="current-password"
       />
-      {/* // </FormField> */}
-      {/* <FormField> */}
       <TextField
+        variant="filled"
         label="Confirm Password"
         required
         type="password"
@@ -68,8 +66,6 @@ function SignUpForm({ onLogin }) {
         onChange={(e) => setPasswordConfirmation(e.target.value)}
         autoComplete="current-password"
       />
-
-
       <Button
         variant="contained"
         color="primary"
@@ -77,12 +73,9 @@ function SignUpForm({ onLogin }) {
         type="submit">
         Sign Up
       </Button>
-      {/* // </FormField> */}
-      {/* <FormField> */}
       {/* {errors.map((err) => (
           <Error key={err}>{err}</Error>
         ))} */}
-      {/* </FormField> */}
     </form>
   );
 }

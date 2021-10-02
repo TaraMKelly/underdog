@@ -32,8 +32,8 @@ function LoginForm({ onLogin }) {
   return (
     <div>
       <form className="form" onSubmit={handleSubmit}>
-        {/* <FormField> */}
         <TextField
+          variant="filled"
           label="Username"
           required
           type="text"
@@ -42,9 +42,8 @@ function LoginForm({ onLogin }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        {/* </FormField> */}
-        {/* <FormField> */}
         <TextField
+          variant="filled"
           label="Password"
           required
           type="password"
@@ -53,8 +52,6 @@ function LoginForm({ onLogin }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
-
         <Button
           variant="contained"
           color="primary"
@@ -62,7 +59,6 @@ function LoginForm({ onLogin }) {
           type="submit">
           Login
         </Button>
-        {/* </FormField> */}
         {/* <FormField>
         {errors.map((err) => (
           <Error key={err}>{err}</Error>
