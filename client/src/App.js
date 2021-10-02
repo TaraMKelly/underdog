@@ -4,6 +4,7 @@ import Login from "./components/Login"
 import Main from './components/Main'
 import Nav from "./components/Nav";
 import GameContainer from "./components/GameContainer";
+import "./index.css"
 // import CommentPage from "./components/CommentPage";
 // import 'semantic-ui-css/semantic.min.css'
 

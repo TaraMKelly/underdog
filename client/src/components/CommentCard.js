@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Button from '@mui/material/Button'
 
 
 function CommentCard({ comments, setComments, comment, nflGame, user, handleDeleteComment }) {
@@ -53,7 +54,11 @@ function CommentCard({ comments, setComments, comment, nflGame, user, handleDele
                         onChange={(e) => setContent(e.target.value)}
                     />
                     <div>
-                        <button type="submit">Submit</button>
+                        <Button 
+                            size="small" 
+                            type="submit">
+                            Submit
+                        </Button>
                     </div>
                 </form> : null}
         </div>

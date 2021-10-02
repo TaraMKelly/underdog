@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-// import { Button, Input, FormField, Label } from "../styles";
+import Button from '@mui/material/Button'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -48,7 +51,13 @@ function LoginForm({ onLogin }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Login</button>
+          <Button 
+            variant="contained" 
+            color="primary" 
+            size="small" 
+            type="submit">
+              Login
+          </Button>
         {/* </FormField> */}
         {/* <FormField>
         {errors.map((err) => (

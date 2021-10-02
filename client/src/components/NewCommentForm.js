@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Button from '@mui/material/Button'
 
 function NewCommentForm({ nflGame, comments, setComments, user }) {
     const [text, setText] = useState("")
@@ -29,7 +30,16 @@ function NewCommentForm({ nflGame, comments, setComments, user }) {
                 onChange={(e) => setText(e.target.value)}
             />
             <div>
-                <button type="submit">Submit</button>
+                <Button 
+                    // style={{
+                    //     fontSize=8
+                    // }} 
+                    variant="contained" 
+                    color="primary" 
+                    size="small" 
+                    type="submit">
+                    Submit
+                </Button>
             </div>
         </form>
     )

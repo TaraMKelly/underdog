@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import {useHistory} from 'react-router-dom'
-// import styled from "styled-components";
-// import { Menu } from 'semantic-ui-react'
+import Button from '@mui/material/Button'
 
 function NavBar({ setUser }) {
 
@@ -22,7 +21,7 @@ function NavBar({ setUser }) {
         <Link to="/nfl">NFL</Link>
         {/* <Link>MLB</Link>
         <Link>EPL</Link> */}
-        <button onClick={handleLogoutClick}>Logout</button> 
+        <Button size="small" onClick={handleLogoutClick}>Logout</Button> 
       </nav>
   );
 }

@@ -7,7 +7,7 @@ function Login({ onLogin }) {
     const [showLogin, setShowLogin] = useState(true);
 
     return (
-      <>
+      <div className="form" >
         {/* <Logo>A Logo</Logo> */}
         {showLogin ? (
           <>
@@ -15,7 +15,10 @@ function Login({ onLogin }) {
             {/* <Divider /> */}
             <p>
               Don't have an account? &nbsp;
-              <Button onClick={() => setShowLogin(false)}>
+              <Button 
+                size="small"
+                variant="contained" 
+                color="primary" onClick={() => setShowLogin(false)}>
                 Sign Up
               </Button>
             </p>
@@ -26,13 +29,16 @@ function Login({ onLogin }) {
             {/* <Divider /> */}
             <p>
               Already have an account? &nbsp;
-              <button onClick={() => setShowLogin(true)}>
+              <Button 
+                size="small" 
+                variant="contained" 
+                color="primary" onClick={() => setShowLogin(true)}>
                 Log In
-              </button>
+              </Button>
             </p>
           </>
         )}
-      </>
+      </div>
     );
   }
 

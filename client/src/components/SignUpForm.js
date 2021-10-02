@@ -1,5 +1,7 @@
 import { useState } from "react";
-// import { Button, Input, FormField, Label } from "../styles";
+import Button from '@mui/material/Button'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 function SignUpForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -63,7 +65,13 @@ function SignUpForm({ onLogin }) {
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
-        <button type="submit">Sign Up</button>
+        <Button 
+          variant="contained" 
+          color="primary" 
+          size="small"
+          type="submit">
+          Sign Up
+        </Button>
       {/* // </FormField> */}
       {/* <FormField> */}
         {/* {errors.map((err) => (
