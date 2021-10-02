@@ -1,6 +1,7 @@
 
-body {
-  background: #637d63;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 .App {

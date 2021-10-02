@@ -24,7 +24,9 @@ function App() {
 
   return (
     <>
-      <Nav setUser={setUser} />
+      <div className="App">
+        <Nav setUser={setUser} />
+      </div>
       <Switch>
         <Route exact path="/">
           <Main user={user} />
