@@ -1,10 +1,13 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { useHistory } from 'react-router-dom'
-import Typography from '@mui/material/Typography'
+// import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link'
+
 
 function NavBar({ setUser }) {
 
@@ -21,15 +24,21 @@ function NavBar({ setUser }) {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography type="title" color="inherit" style={{ flex: 1 }}>
-          <Link to="/">Home</Link>
-          <Link to="/nfl">NFL</Link>
+        <Grid container spacing={1}>
+          <Link component={RouterLink} color="white" underline="hover" to="/">
+            Home
+          </Link>
+        </Grid>
+        <Grid container spacing={1}>
+          <Link component={RouterLink} color="white" underline="hover" to="/nfl">
+            NFL
+          </Link>
           {/* <Link>MLB</Link>
         <Link>EPL</Link> */}
-        </Typography>
-        <div>
+        </Grid>
+        <Grid justifyContent="flex-end">
           <Button size="small" color="inherit" onClick={handleLogoutClick}>Logout</Button>
-        </div>
+        </Grid>
       </Toolbar>
     </AppBar>
   );

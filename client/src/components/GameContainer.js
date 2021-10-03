@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react"
 import GameCard from "./GameCard"
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
+import Container from '@mui/material/Container'
+import Typography from "@mui/material/Typography"
 
-function GameContainer({user}) {
+
+function GameContainer({ user }) {
     const [nflGames, setGames] = useState([])
     const [comments, setComments] = useState([])
 
@@ -18,15 +23,23 @@ function GameContainer({user}) {
     }, [])
 
     function handleDeleteComment(id) {
-        const removeComment = comments.filter((c) => c.id !==id)
+        const removeComment = comments.filter((c) => c.id !== id)
         setComments(removeComment)
     }
 
     return (
-        <div>
-            <h1>NFL</h1>
-            { nflGames.map(nflGame => <GameCard key={nflGame.id} handleDeleteComment={handleDeleteComment} user={user} nflGame ={nflGame} comments={comments} setComments={setComments} />) }
-        </div>
+        <Container fixed>
+            <Typography variant="h4">NFL</Typography>
+            <Grid>
+                {nflGames.map(nflGame =>
+                    <GameCard key={nflGame.id}
+                        handleDeleteComment={handleDeleteComment}
+                        user={user}
+                        nflGame={nflGame}
+                        comments={comments}
+                        setComments={setComments} />)}
+            </Grid>
+        </Container>
     )
 }
 
