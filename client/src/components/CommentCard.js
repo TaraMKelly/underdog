@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react'
 import Button from '@mui/material/Button'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import Typography from "@mui/material/Typography"
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import CheckIcon from '@mui/icons-material/Check';
 
 
 function CommentCard({ comments, setComments, comment, nflGame, user, handleDeleteComment }) {
@@ -47,26 +50,28 @@ function CommentCard({ comments, setComments, comment, nflGame, user, handleDele
         <div>
             <Typography variant="subtitle2" >
                 {nflGame.id === comment.game_id ? `${comment.user.username}: ${comment.comment}` : null}
+
+                {nflGame.id === comment.game_id && user.id === comment.user_id ?
+                    <ButtonGroup size="small" variant="text" >
+                        <Button onClick={deleteClick}> <DeleteIcon color="action" fontSize="small" /> </Button>
+                        <Button onClick={editComment}> <EditIcon color="action" fontSize="small" /> </Button>
+                    </ButtonGroup>
+                    : null}
+
+                {edit ?
+                    <form onSubmit={handleCommentEdit}>
+                        <input type="text" name="name" value={content}
+                            onChange={(e) => setContent(e.target.value)}
+                        />
+                        <div>
+                            <Button
+                                size="small"
+                                type="submit">
+                                <CheckIcon color="action" fontSize="small" />
+                            </Button>
+                        </div>
+                    </form> : null}
             </Typography>
-            {nflGame.id === comment.game_id && user.id === comment.user_id ?
-                <ButtonGroup size="small">
-                    <Button onClick={deleteClick}>X</Button>
-                    <Button onClick={editComment}>Edit</Button>
-                </ButtonGroup> 
-                : null}
-            {edit ?
-                <form onSubmit={handleCommentEdit}>
-                    <input type="text" name="name" value={content}
-                        onChange={(e) => setContent(e.target.value)}
-                    />
-                    <div>
-                        <Button
-                            size="small"
-                            type="submit">
-                            Submit
-                        </Button>
-                    </div>
-                </form> : null}
         </div>
     )
 }

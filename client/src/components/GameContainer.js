@@ -40,8 +40,8 @@ function GameContainer({ user }) {
         <Container fixed>
             <Typography variant="h4" align="center">NFL</Typography>
 
-                {allGames}
-                
+            {allGames}
+
         </Container>
     )
 }
