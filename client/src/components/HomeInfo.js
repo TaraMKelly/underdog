@@ -1,12 +1,12 @@
-
+import Typography from "@mui/material/Typography"
 
 function HomeInfo({ homeTeam, homeMl, homeSpr, homePrice }) {
 //add date
     return (
         <div>
-            <h2>{homeTeam}</h2>
-            <p>point spread: {homeSpr} {homePrice} </p>
-            <p>money line: {homeMl}</p>
+            <Typography variant="h6">{homeTeam}</Typography>
+            <Typography variant="body1"><b>point spread:</b> {homeSpr} {homePrice} </Typography>
+            <Typography variant="body1"><b>money line:</b> {homeMl}</Typography>
         </div>
     )
 }

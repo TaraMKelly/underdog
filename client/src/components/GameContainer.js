@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import GameCard from "./GameCard"
 import Grid from '@mui/material/Grid'
+import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Typography from "@mui/material/Typography"
@@ -27,18 +28,20 @@ function GameContainer({ user }) {
         setComments(removeComment)
     }
 
+    const allGames = nflGames.map(nflGame =>
+        <GameCard key={nflGame.id}
+            handleDeleteComment={handleDeleteComment}
+            user={user}
+            nflGame={nflGame}
+            comments={comments}
+            setComments={setComments} />)
+
     return (
         <Container fixed>
-            <Typography variant="h4">NFL</Typography>
-            <Grid>
-                {nflGames.map(nflGame =>
-                    <GameCard key={nflGame.id}
-                        handleDeleteComment={handleDeleteComment}
-                        user={user}
-                        nflGame={nflGame}
-                        comments={comments}
-                        setComments={setComments} />)}
-            </Grid>
+            <Typography variant="h4" align="center">NFL</Typography>
+
+                {allGames}
+                
         </Container>
     )
 }

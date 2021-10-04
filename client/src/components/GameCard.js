@@ -2,6 +2,7 @@ import AwayInfo from "./AwayInfo"
 import HomeInfo from "./HomeInfo"
 // import { Link } from 'react-router-dom'
 import CommentPage from "./CommentPage"
+import Divider from '@mui/material/Divider';
 import { useState, useEffect } from 'react'
 
 
@@ -20,6 +21,7 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment })
             <AwayInfo awayTeam={awayTeam} awayMl={awayMl} awaySpr={awaySpr} awayPrice={awayPrice} />
             @
             <HomeInfo homeTeam={homeTeam} homeMl={homeMl} homeSpr={homeSpr} homePrice={homePrice} />
+            <Divider />
             <CommentPage nflGame={nflGame} user={user} handleDeleteComment={handleDeleteComment} comments={comments} setComments={setComments} />
         </div>
     )

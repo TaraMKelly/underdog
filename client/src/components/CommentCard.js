@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import Button from '@mui/material/Button'
+import ButtonGroup from '@mui/material/ButtonGroup'
+import Typography from "@mui/material/Typography"
 
 
 function CommentCard({ comments, setComments, comment, nflGame, user, handleDeleteComment }) {
@@ -43,19 +45,23 @@ function CommentCard({ comments, setComments, comment, nflGame, user, handleDele
 
     return (
         <div>
-            {nflGame.id === comment.game_id ? `${comment.user.username}: ${comment.comment}` : null}
+            <Typography variant="subtitle2" >
+                {nflGame.id === comment.game_id ? `${comment.user.username}: ${comment.comment}` : null}
+            </Typography>
             {nflGame.id === comment.game_id && user.id === comment.user_id ?
-                <button onClick={deleteClick}>X</button> : null}
-            {nflGame.id === comment.game_id && user.id === comment.user_id ?
-                <button onClick={editComment}>Edit</button> : null}
+                <ButtonGroup size="small">
+                    <Button onClick={deleteClick}>X</Button>
+                    <Button onClick={editComment}>Edit</Button>
+                </ButtonGroup> 
+                : null}
             {edit ?
                 <form onSubmit={handleCommentEdit}>
                     <input type="text" name="name" value={content}
                         onChange={(e) => setContent(e.target.value)}
                     />
                     <div>
-                        <Button 
-                            size="small" 
+                        <Button
+                            size="small"
                             type="submit">
                             Submit
                         </Button>

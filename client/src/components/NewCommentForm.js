@@ -34,7 +34,7 @@ function NewCommentForm({ nflGame, comments, setComments, user }) {
                     // style={{
                     //     fontSize=8
                     // }} 
-                    variant="contained" 
+                    variant="outlined" 
                     color="primary" 
                     size="small" 
                     type="submit">
