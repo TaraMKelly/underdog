@@ -5,8 +5,19 @@ import Main from './components/Main'
 import Nav from "./components/Nav";
 import GameContainer from "./components/GameContainer";
 import "./index.css"
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles'
 // import CommentPage from "./components/CommentPage";
-// import 'semantic-ui-css/semantic.min.css'
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#4e3199'
+    },
+    secondary: {
+      main: '#7bd194'
+    }
+  }
+})
 
 function App() {
   const [user, setUser] = useState(null);
@@ -20,10 +31,10 @@ function App() {
     });
   }, []);
 
-  if (!user) return <Login onLogin={setUser} />;
+  if (!user) return <ThemeProvider theme={theme}> <Login onLogin={setUser} /> </ThemeProvider> ;
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <div className="App">
         <Nav setUser={setUser} />
       </div>
@@ -47,7 +58,7 @@ function App() {
           <h1>404 not found</h1>
         </Route>
       </Switch>
-    </>
+    </ThemeProvider>
   );
 }
 export default App;

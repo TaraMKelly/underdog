@@ -1,8 +1,20 @@
 import { useState, useEffect } from 'react'
 import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
+import { makeStyles } from '@mui/styles'
+
+const useStyles = makeStyles ({
+    btn: {
+        fontSize: 10,
+        '&:hover': {
+            background: 'gray'
+        }
+    }
+})
 
 function NewCommentForm({ nflGame, comments, setComments, user }) {
     const [text, setText] = useState("")
+    const classes = useStyles()
 
     async function onCommentSubmit(e) {
         e.preventDefault()
@@ -29,18 +41,16 @@ function NewCommentForm({ nflGame, comments, setComments, user }) {
             <input type="text" name="name" placeholder='Add a comment...' value={text}
                 onChange={(e) => setText(e.target.value)}
             />
-            <div>
-                <Button 
-                    // style={{
-                    //     fontSize=8
-                    // }} 
+            <Typography>
+                <Button
+                    className={classes.btn}
                     variant="outlined" 
                     color="primary" 
                     size="small" 
                     type="submit">
                     Submit
                 </Button>
-            </div>
+            </Typography>
         </form>
     )
 }

@@ -5,12 +5,20 @@ import Typography from "@mui/material/Typography"
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CheckIcon from '@mui/icons-material/Check';
+import { makeStyles } from '@mui/styles'
 
+const useStyles = makeStyles ({
+    username: {
+        textDecoration: "bold",
+        color: "blue"
+    }
+})
 
 function CommentCard({ comments, setComments, comment, nflGame, user, handleDeleteComment }) {
     const [edit, setEdit] = useState(false)
     const [content, setContent] = useState(comment.comment)
     const id = comment.id
+    const classes = useStyles()
 
     function deleteClick(e) {
         e.preventDefault()
@@ -45,6 +53,7 @@ function CommentCard({ comments, setComments, comment, nflGame, user, handleDele
             .then(handleUpdatecomment)
         setEdit(!edit)
     }
+   
 
     return (
         <div>
