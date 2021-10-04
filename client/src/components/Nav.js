@@ -37,7 +37,7 @@ function NavBar({ setUser }) {
         <Link>EPL</Link> */}
         </Grid>
         <Grid justifyContent="flex-end">
-          <Button size="small" color="inherit" onClick={handleLogoutClick}>Logout</Button>
+          <Button size="small" color="secondary" variant="contained" onClick={handleLogoutClick}>Logout</Button>
         </Grid>
       </Toolbar>
     </AppBar>

@@ -22,7 +22,7 @@ function Login({ onLogin }) {
               <Button
                 size="small"
                 variant="contained"
-                color="primary" onClick={() => setShowLogin(false)}>
+                color="secondary" onClick={() => setShowLogin(false)}>
                 Sign Up
               </Button>
             </p>
@@ -41,7 +41,7 @@ function Login({ onLogin }) {
               <Button
                 size="small"
                 variant="contained"
-                color="primary" onClick={() => setShowLogin(true)}>
+                color="secondary" onClick={() => setShowLogin(true)}>
                 Log In
               </Button>
             </p>
