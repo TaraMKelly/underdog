@@ -8,10 +8,10 @@ function Main({ user }) {
                 position: 'absolute', left: '50%', top: '40%',
                 transform: 'translate(-50%, -50%)'
             }}>
-            <img src={dawg} alt="underdog" />
             <Typography variant="h4">
                 Welcome {user.username}!
             </Typography>
+            <img src={dawg} alt="underdog" />
         </div>
     )
 }
