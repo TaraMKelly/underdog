@@ -28,8 +28,7 @@ function GameContainer({ user }) {
 
 
     return (
-        <Container fixed>
-            <Typography variant="h4" align="center">NFL</Typography>
+        <Container fixed sx={{p: 3}}>
             <Grid container spacing={4}>
                 {nflGames.map(nflGame =>
                     <Grid item xs={12} s={6} md={3}>
