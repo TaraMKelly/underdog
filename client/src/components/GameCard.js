@@ -3,16 +3,12 @@ import HomeInfo from "./HomeInfo"
 import { useState } from "react";
 // import { Link } from 'react-router-dom'
 import CommentPage from "./CommentPage"
-import Collapse from "@mui/material/Collapse"
 import Button from "@mui/material/Button"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import CardActions from "@mui/material/CardActions";
 import Divider from '@mui/material/Divider'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Grid from '@mui/material/Grid'
-
-
 
 function GameCard({ nflGame, user, comments, setComments, handleDeleteComment }) {
     const [expanded, setExpanded] = useState(false)
@@ -44,7 +40,11 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment })
                     </Grid>
                 </CardContent>
             </Grid>
-            <Button onClick={handleCommentExpand} startIcon={<ExpandMoreIcon sx={{transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)'}}/>}>
+            <Button 
+                onClick={handleCommentExpand} 
+                sx={{fontSize: 10}}
+                startIcon={<ExpandMoreIcon sx={{transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)'}}/>}
+            >
                 {expanded ? "Hide Comments" : "Show Comments"}
             </Button>
             {expanded ?
