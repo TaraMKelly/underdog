@@ -44,8 +44,8 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment })
                     </Grid>
                 </CardContent>
             </Grid>
-            <Button onClick={handleCommentExpand} startIcon={<ExpandMoreIcon/>}>
-                Show Comments
+            <Button onClick={handleCommentExpand} startIcon={<ExpandMoreIcon sx={{transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)'}}/>}>
+                {expanded ? "Hide Comments" : "Show Comments"}
             </Button>
             {expanded ?
                 <>
