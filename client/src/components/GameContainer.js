@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 import GameCard from "./GameCard"
 import Grid from '@mui/material/Grid'
-import Paper from '@mui/material/Paper'
-// import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 
@@ -32,20 +30,16 @@ function GameContainer({ user }) {
     return (
         <Container fixed>
             <Typography variant="h4" align="center">NFL</Typography>
-            <Grid container>
+            <Grid container spacing={4}>
                 {nflGames.map(nflGame =>
                     <Grid item xs={12} s={6} md={3}>
-                        <Paper>
-                            <GameCard key={nflGame.id}
-                                handleDeleteComment={handleDeleteComment}
-                                user={user}
-                                nflGame={nflGame}
-                                comments={comments}
-                                setComments={setComments} />
-                        </Paper>
+                        <GameCard key={nflGame.id}
+                            handleDeleteComment={handleDeleteComment}
+                            user={user}
+                            nflGame={nflGame}
+                            comments={comments}
+                            setComments={setComments} />
                     </Grid>)}
-
-
             </Grid >
         </Container >
     )
