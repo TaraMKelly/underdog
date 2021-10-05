@@ -38,7 +38,7 @@ function NewCommentForm({ nflGame, comments, setComments, user }) {
 
     return (
         <form onSubmit={onCommentSubmit}>
-            <input type="text" name="name" placeholder='Add a comment...' value={text}
+            <input type="text" name="name" placeholder="What's your play..." value={text}
                 onChange={(e) => setText(e.target.value)}
             />
             <Typography>

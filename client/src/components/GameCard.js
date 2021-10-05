@@ -3,7 +3,7 @@ import HomeInfo from "./HomeInfo"
 // import { Link } from 'react-router-dom'
 import CommentPage from "./CommentPage"
 import Divider from '@mui/material/Divider';
-import { useState, useEffect } from 'react'
+
 
 
 function GameCard({ nflGame, user, comments, setComments, handleDeleteComment }) {

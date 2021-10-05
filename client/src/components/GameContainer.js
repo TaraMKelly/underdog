@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import GameCard from "./GameCard"
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
-import Box from '@mui/material/Box'
+// import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 
@@ -39,9 +39,22 @@ function GameContainer({ user }) {
     return (
         <Container fixed>
             <Typography variant="h4" align="center">NFL</Typography>
+            <Grid container>
 
-            {allGames}
-
+                {/* <Grid item>
+                <Paper>1</Paper>
+            </Grid>
+            <Grid item>
+                <Paper>2</Paper>
+            </Grid>
+            <Grid item>
+                <Paper>3</Paper>
+            </Grid>
+            <Grid item>
+                <Paper>4</Paper>
+            </Grid> */}
+                {allGames}
+            </Grid>
         </Container>
     )
 }

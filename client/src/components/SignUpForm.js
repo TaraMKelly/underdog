@@ -1,7 +1,15 @@
 import { useState } from "react";
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField';
-import { createTheme } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles'
+
+const useStyles = makeStyles ({
+  field: {
+      marginTop: 20,
+      marginBottom: 20,
+      display: 'block'
+  }
+})
 
 
 function SignUpForm({ onLogin }) {
@@ -9,6 +17,7 @@ function SignUpForm({ onLogin }) {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
+  const classes = useStyles()
   // const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
@@ -38,6 +47,7 @@ function SignUpForm({ onLogin }) {
   return (
     <form className="form" onSubmit={handleSubmit}>
       <TextField
+        className={classes.field}
         variant="filled"
         label="Username"
         required
@@ -48,6 +58,7 @@ function SignUpForm({ onLogin }) {
         onChange={(e) => setUsername(e.target.value)}
       />
       <TextField
+        className={classes.field}
         variant="filled"
         label="Password"
         required
@@ -58,6 +69,7 @@ function SignUpForm({ onLogin }) {
         autoComplete="current-password"
       />
       <TextField
+        className={classes.field}
         variant="filled"
         label="Confirm Password"
         required
