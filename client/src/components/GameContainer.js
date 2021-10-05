@@ -28,34 +28,26 @@ function GameContainer({ user }) {
         setComments(removeComment)
     }
 
-    const allGames = nflGames.map(nflGame =>
-        <GameCard key={nflGame.id}
-            handleDeleteComment={handleDeleteComment}
-            user={user}
-            nflGame={nflGame}
-            comments={comments}
-            setComments={setComments} />)
 
     return (
         <Container fixed>
             <Typography variant="h4" align="center">NFL</Typography>
             <Grid container>
+                {nflGames.map(nflGame =>
+                    <Grid item xs={12} s={6} md={3}>
+                        <Paper>
+                            <GameCard key={nflGame.id}
+                                handleDeleteComment={handleDeleteComment}
+                                user={user}
+                                nflGame={nflGame}
+                                comments={comments}
+                                setComments={setComments} />
+                        </Paper>
+                    </Grid>)}
 
-                {/* <Grid item>
-                <Paper>1</Paper>
-            </Grid>
-            <Grid item>
-                <Paper>2</Paper>
-            </Grid>
-            <Grid item>
-                <Paper>3</Paper>
-            </Grid>
-            <Grid item>
-                <Paper>4</Paper>
-            </Grid> */}
-                {allGames}
-            </Grid>
-        </Container>
+
+            </Grid >
+        </Container >
     )
 }
 
