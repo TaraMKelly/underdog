@@ -4,7 +4,7 @@ import { useState } from "react";
 // import { Link } from 'react-router-dom'
 import CommentPage from "./CommentPage"
 import Collapse from "@mui/material/Collapse"
-import IconButton from "@mui/material/IconButton"
+import Button from "@mui/material/Button"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import CardActions from "@mui/material/CardActions";
 import Divider from '@mui/material/Divider'
@@ -44,9 +44,9 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment })
                     </Grid>
                 </CardContent>
             </Grid>
-            <IconButton onClick={handleCommentExpand}>
-                <ExpandMoreIcon/>
-            </IconButton>
+            <Button onClick={handleCommentExpand} startIcon={<ExpandMoreIcon/>}>
+                Show Comments
+            </Button>
             {expanded ?
                 <>
                     <Divider />
