@@ -1,15 +1,22 @@
 import AwayInfo from "./AwayInfo"
 import HomeInfo from "./HomeInfo"
+import { useState } from "react";
 // import { Link } from 'react-router-dom'
 import CommentPage from "./CommentPage"
-import Divider from '@mui/material/Divider';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
+import Collapse from "@mui/material/Collapse"
+import IconButton from "@mui/material/IconButton"
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import CardActions from "@mui/material/CardActions";
+import Divider from '@mui/material/Divider'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
 import Grid from '@mui/material/Grid'
 
 
 
 function GameCard({ nflGame, user, comments, setComments, handleDeleteComment }) {
+    const [expanded, setExpanded] = useState(false)
+
     const awayTeam = nflGame.away_team
     const awayMl = parseInt(nflGame.away_ml, 10)
     const awaySpr = parseInt(nflGame.away_spread, 10)
@@ -19,8 +26,12 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment })
     const homeSpr = parseInt(nflGame.home_spread, 10)
     const homePrice = parseInt(nflGame.home_price, 10)
 
+    function handleCommentExpand() {
+        setExpanded(!expanded)
+    }
+
     return (
-        <Card>
+        <Card elevation={1}>
             <Grid container>
                 <CardContent>
                     <Grid item >
@@ -33,10 +44,17 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment })
                     </Grid>
                 </CardContent>
             </Grid>
-            <Divider />
-            <CardContent>
-                <CommentPage nflGame={nflGame} user={user} handleDeleteComment={handleDeleteComment} comments={comments} setComments={setComments} />
-            </CardContent>
+            <IconButton onClick={handleCommentExpand}>
+                <ExpandMoreIcon/>
+            </IconButton>
+            {expanded ?
+                <>
+                    <Divider />
+                    <CardContent>
+                        <CommentPage nflGame={nflGame} user={user} handleDeleteComment={handleDeleteComment} comments={comments} setComments={setComments} />
+                    </CardContent> 
+                </> : null
+            }
         </Card>
     )
 }
