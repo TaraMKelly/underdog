@@ -25,7 +25,7 @@ const useStyles = makeStyles({
     }
 })
 
-function GameCard({ nflGame, user, comments, setComments, handleDeleteComment }) {
+function GameCard({ nflGame, user, comments, setComments, handleDeleteComment, userPicks, setUserPicks }) {
     const [expanded, setExpanded] = useState(false)
     const [teamPick, setTeamPick] = useState(null)
     const [overUnder, setOverUnder] = useState(null)
@@ -49,21 +49,22 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment })
     async function handleSubmit(e) {
         e.preventDefault()
         console.log("clicked")
-        // const res = await fetch('/user_picks', {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         "Accept": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         game_date: gameTime,
-        //         over: overUnder === "over" ? true : false,
-        //         under: overUnder === "under" ? true : false,
-        //         team_picked: teamPick,
-        //         user_id: user.id
-        //     })
-        // })
-        // const parsedBody = await res.json()
+        const res = await fetch('/user_picks', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                game_date: gameTime,
+                over: overUnder,
+                under: overUnder,
+                team_picked: teamPick,
+                user_id: user.id
+            })
+        })
+        const parsedBody = await res.json()
+        console.log(parsedBody)
         // setUserPicks([...userPicks, parsedBody])
         setTeamPick(null)
         setOverUnder(null)
@@ -102,7 +103,6 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment })
                             <FormControlLabel value="over" control={<Radio />} label="Over" />
                             <FormControlLabel value="under" control={<Radio />} label="Under" />
                         </RadioGroup>
-
                         <Button
                             className={classes.btn}
                             variant="contained"
@@ -114,7 +114,6 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment })
                     </FormControl>
                 </form>
             </CardContent>
-
             <Button
                 onClick={handleCommentExpand}
                 sx={{ fontSize: 10 }}

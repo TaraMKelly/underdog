@@ -5,7 +5,8 @@ import Container from '@mui/material/Container'
 
 function GameContainer({ user }) {
     const [nflGames, setGames] = useState([])
-    const [comments, setComments] = useState([])
+    const [comments, setComments] = useState(null)
+    const [userPicks, setUserPicks] = useState(null)
 
     useEffect(() => {
         fetch('/games')
@@ -18,6 +19,12 @@ function GameContainer({ user }) {
             .then(res => res.json())
             .then((data) => setComments(data))
     }, [])
+
+    useEffect(() => {
+        fetch('/user_picks')
+          .then(res => res.json())
+          .then((data) => setUserPicks(data))
+      }, [])
 
     function handleDeleteComment(id) {
         const removeComment = comments.filter((c) => c.id !== id)
@@ -35,7 +42,9 @@ function GameContainer({ user }) {
                             user={user}
                             nflGame={nflGame}
                             comments={comments}
-                            setComments={setComments} />
+                            setComments={setComments}
+                            userPicks={userPicks}
+                            setUserPicks={setUserPicks} />
                     </Grid>)}
             </Grid >
         </Container >

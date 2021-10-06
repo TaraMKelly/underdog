@@ -20,8 +20,8 @@ const theme = createTheme({
 })
 
 function App() {
-  const [user, setUser] = useState(null);
-
+  const [user, setUser] = useState(null)
+  
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -31,7 +31,9 @@ function App() {
     });
   }, []);
 
-  if (!user) return <ThemeProvider theme={theme}> <Login onLogin={setUser} /> </ThemeProvider> ;
+
+  if (!user) return <ThemeProvider theme={theme}> <Login onLogin={setUser} /> </ThemeProvider>;
+
 
   return (
     <ThemeProvider theme={theme}>
