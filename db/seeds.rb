@@ -6,11 +6,12 @@ end
 
 def game_dataset
     api_data = {key: odds_key}
-    games=RestClient.get("https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=#{api_data[:key]}&regions=us&markets=h2h,spreads&oddsFormat=american")
+    games=RestClient.get("https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=#{api_data[:key]}&regions=us&markets=totals,h2h,spreads&oddsFormat=american")
     games_data = JSON.parse(games)
     # byebug
     games_data.each do |g|
         Game.create(
+            game_date: g["commence_time"],
             away_team: g["bookmakers"][0]["markets"][0]["outcomes"][0]["name"], 
             away_ml: g["bookmakers"][0]["markets"][0]["outcomes"][0]["price"],
             home_team: g["bookmakers"][0]["markets"][0]["outcomes"][1]["name"], 
@@ -18,7 +19,8 @@ def game_dataset
             away_spread: g["bookmakers"][0]["markets"][1]["outcomes"][0]["point"],
             home_spread: g["bookmakers"][0]["markets"][1]["outcomes"][1]["point"],
             away_price: g["bookmakers"][0]["markets"][1]["outcomes"][0]["price"],
-            home_price: g["bookmakers"][0]["markets"][1]["outcomes"][1]["price"]
+            home_price: g["bookmakers"][0]["markets"][1]["outcomes"][1]["price"],
+            over_under: g["bookmakers"][0]["markets"][2]["outcomes"][0]["point"]
         ) 
     end
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_picks, only: [:index, :show, :create]
   resources :comments
   resources :games, only: [:index, :show, :create]
   get '/users', to: 'users#index'

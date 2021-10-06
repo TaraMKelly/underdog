@@ -2,8 +2,6 @@ import { useEffect, useState } from "react"
 import GameCard from "./GameCard"
 import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
-import Typography from '@mui/material/Typography'
-
 
 function GameContainer({ user }) {
     const [nflGames, setGames] = useState([])

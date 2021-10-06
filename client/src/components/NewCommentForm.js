@@ -18,7 +18,6 @@ function NewCommentForm({ nflGame, comments, setComments, user }) {
 
     async function onCommentSubmit(e) {
         e.preventDefault()
-        setText("")
         const res = await fetch('/comments', {
             method: "POST",
             headers: {

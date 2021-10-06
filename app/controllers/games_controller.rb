@@ -21,11 +21,11 @@ class GamesController < ApplicationController
     private
     
     def find_game
-        comment.find(params[:id])
+        Game.find(params[:id])
     end
     
     def game_params
-        params.permit(:home_team, :away_team, :away_ml, :home_ml, :away_spread, :home_spread, :away_price, :home_price)
+        params.permit(:game_date, :home_team, :away_team, :away_ml, :home_ml, :away_spread, :home_spread, :away_price, :home_price, :over_under)
     end
     
     end
