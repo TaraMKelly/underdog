@@ -31,8 +31,8 @@ function GameContainer({ user }) {
         <Container fixed sx={{p: 3}}>
             <Grid container spacing={4}>
                 {nflGames.map(nflGame =>
-                    <Grid item xs={12} s={6} md={3}>
-                        <GameCard key={nflGame.id}
+                    <Grid key={nflGame.id} item xs={12} s={6} md={3}>
+                        <GameCard 
                             handleDeleteComment={handleDeleteComment}
                             user={user}
                             nflGame={nflGame}

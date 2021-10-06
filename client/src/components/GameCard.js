@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     btn: {
         fontSize: 10,
         '&:hover': {
-            background: 'gray'
+            background: 'black'
         }
     }
 })
@@ -36,9 +36,16 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment })
     const homeMl = parseInt(nflGame.home_ml, 10)
     const homeSpr = parseInt(nflGame.home_spread, 10)
     const homePrice = parseInt(nflGame.home_price, 10)
+    
 
     function handleCommentExpand() {
         setExpanded(!expanded)
+    }
+    function handleSumbit(e) {
+        e.preventDefault()
+        console.log("clicked")
+        setTeamPick(null)
+        setOverUnder(null)
     }
 
     return (
@@ -57,7 +64,7 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment })
             </Grid>
 
             <CardContent>
-                <form onSubmit={console.log("clicked")}>
+                <form onSubmit={handleSumbit}>
                     <FormControl >
                         <FormLabel>Your pick:</FormLabel>
                         <RadioGroup value={teamPick} onChange={(e) => setTeamPick(e.target.value)}>
