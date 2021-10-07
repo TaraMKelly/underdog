@@ -48,7 +48,6 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment, u
     }
     async function handleSubmit(e) {
         e.preventDefault()
-        console.log("clicked")
         const res = await fetch('/user_picks', {
             method: "POST",
             headers: {
@@ -57,8 +56,7 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment, u
             },
             body: JSON.stringify({
                 game_date: gameTime,
-                over: overUnder,
-                under: overUnder,
+                over_under: overUnder,
                 team_picked: teamPick,
                 user_id: user.id
             })
@@ -90,7 +88,6 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment, u
                     </Grid>
                 </CardContent>
             </Grid>
-
             <CardContent>
                 <form onSubmit={handleSubmit}>
                     <FormControl >
@@ -117,15 +114,23 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment, u
             <Button
                 onClick={handleCommentExpand}
                 sx={{ fontSize: 10 }}
-                startIcon={<ExpandMoreIcon sx={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)' }} />}
+                startIcon={
+                    <ExpandMoreIcon 
+                        sx={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)' }} 
+                    />}
             >
-                {expanded ? "Hide Comments" : "Show Comments"}
+                {expanded ? "Hide Discussion" : "Show Discussion"}
             </Button>
             {expanded ?
                 <>
                     <Divider />
                     <CardContent>
-                        <CommentPage nflGame={nflGame} user={user} handleDeleteComment={handleDeleteComment} comments={comments} setComments={setComments} />
+                        <CommentPage 
+                            nflGame={nflGame} 
+                            user={user} 
+                            handleDeleteComment={handleDeleteComment} 
+                            comments={comments} 
+                            setComments={setComments} />
                     </CardContent>
                 </> : null
             }
