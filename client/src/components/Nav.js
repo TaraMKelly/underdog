@@ -25,6 +25,7 @@ function NavBar({ setUser }) {
     <AppBar position="static">
       <Toolbar>
         <Grid container spacing={1}>
+
           <Link component={RouterLink} color="white" underline="hover" to="/">
             Home
           </Link>
@@ -33,11 +34,14 @@ function NavBar({ setUser }) {
           <Link component={RouterLink} color="white" underline="hover" to="/nfl">
             NFL
           </Link>
+
           {/* <Link>MLB</Link>
         <Link>EPL</Link> */}
         </Grid>
         <Grid justifyContent="flex-end">
-          <Button size="small" color="secondary" variant="contained" onClick={handleLogoutClick}>Logout</Button>
+          <div>
+            <Button size="small" color="secondary" variant="contained" onClick={handleLogoutClick}>Logout</Button>
+          </div>
         </Grid>
       </Toolbar>
     </AppBar>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_133417) do
+ActiveRecord::Schema.define(version: 2021_10_07_135135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2021_10_07_133417) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "over_under"
+    t.bigint "game_id", null: false
+    t.index ["game_id"], name: "index_user_picks_on_game_id"
     t.index ["user_id"], name: "index_user_picks_on_user_id"
   end
 
@@ -60,5 +62,6 @@ ActiveRecord::Schema.define(version: 2021_10_07_133417) do
 
   add_foreign_key "comments", "games"
   add_foreign_key "comments", "users"
+  add_foreign_key "user_picks", "games"
   add_foreign_key "user_picks", "users"
 end

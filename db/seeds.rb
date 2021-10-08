@@ -32,5 +32,10 @@ User.create(username: "tarakelly16", password: "banana", location: "Brooklyn")
 User.create(username: "DaBears12", password: "bears", location: "Chicago")
 User.create(username: "FlyEaglesFly", password: "eagles", location: "Michigan")
 User.create(username: "gosportsteam", password: "team", location: "USA")
+User.create(username: "AlwaysBetTheOver", password: "password", location: "USA")
+User.create(username: "DavePortnoy", password: "barstool", location: "USA")
+User.create(username: "SportsPotato101", password: "potato", location: "USA")
+User.create(username: "TomBrady", password: "brady", location: "USA")
+User.create(username: "DegenerateGambler27", password: "degenerate", location: "USA")
 
 puts "✅ Done seeding!"

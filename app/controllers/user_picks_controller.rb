@@ -25,7 +25,7 @@ class UserPicksController < ApplicationController
     end
         
     def user_pick_params
-        params.permit(:game_date, :over, :under, :team_picked, :user_id)
+        params.permit(:game_date, :over_under, :team_picked, :user_id, :game_id)
     end
 
     def render_unprocessable_entity_response(invalid)

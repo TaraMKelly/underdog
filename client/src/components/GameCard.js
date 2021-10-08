@@ -69,7 +69,7 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment, u
     }
 
     return (
-        <Card elevation={4}>
+        <Card elevation={8}>
             <Grid container>
                 <CardHeader title={gameTime} />
                 <CardContent>
