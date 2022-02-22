@@ -58,6 +58,7 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment, u
                 game_date: gameTime,
                 over_under: overUnder,
                 team_picked: teamPick,
+                game_id: nflGame.id,
                 user_id: user.id
             })
         })

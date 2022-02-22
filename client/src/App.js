@@ -21,6 +21,7 @@ const theme = createTheme({
 
 function App() {
   const [user, setUser] = useState(null)
+  const [userPicks, setUserPicks] = useState(null)
   
   useEffect(() => {
     // auto-login
@@ -31,9 +32,15 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    fetch('/user_picks')
+      .then(res => res.json())
+      .then((data) => setUserPicks(data))
+  }, [])
+
 
   if (!user) return <ThemeProvider theme={theme}> <Login onLogin={setUser} /> </ThemeProvider>;
-
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -42,10 +49,10 @@ function App() {
       </div>
       <Switch>
         <Route exact path="/">
-          <Main user={user} />
+          <Main user={user} userPicks={userPicks} />
         </Route>
         <Route exact path="/nfl">
-          <GameContainer user={user} />
+          <GameContainer userPicks={userPicks} setUserPicks={setUserPicks} user={user} />
         </Route>
         {/* <Route path="/mlb">
           <GameContainer />

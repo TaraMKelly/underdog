@@ -3,10 +3,10 @@ import GameCard from "./GameCard"
 import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 
-function GameContainer({ user }) {
+function GameContainer({ user, userPicks, setUserPicks }) {
     const [nflGames, setGames] = useState([])
     const [comments, setComments] = useState(null)
-    const [userPicks, setUserPicks] = useState(null)
+    // const [userPicks, setUserPicks] = useState(null)
 
     useEffect(() => {
         fetch('/games')
@@ -20,11 +20,11 @@ function GameContainer({ user }) {
             .then((data) => setComments(data))
     }, [])
 
-    useEffect(() => {
-        fetch('/user_picks')
-          .then(res => res.json())
-          .then((data) => setUserPicks(data))
-      }, [])
+    // useEffect(() => {
+    //     fetch('/user_picks')
+    //       .then(res => res.json())
+    //       .then((data) => setUserPicks(data))
+    //   }, [])
 
     function handleDeleteComment(id) {
         const removeComment = comments.filter((c) => c.id !== id)
