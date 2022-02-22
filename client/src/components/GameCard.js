@@ -63,8 +63,9 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment, u
             })
         })
         const parsedBody = await res.json()
-        console.log(parsedBody)
-        // setUserPicks([...userPicks, parsedBody])
+        // console.log(parsedBody)
+        setUserPicks([...userPicks, parsedBody])
+        console.log(userPicks)
         setTeamPick(null)
         setOverUnder(null)
     }
@@ -98,7 +99,7 @@ function GameCard({ nflGame, user, comments, setComments, handleDeleteComment, u
                             <FormControlLabel value={homeTeam} control={<Radio />} label={homeTeam} />
                         </RadioGroup>
                         <RadioGroup value={overUnder} onChange={(e) => setOverUnder(e.target.value)}>
-                            <FormControlLabel value="over" control={<Radio />} label="Over" />
+                            <FormControlLabel value= "over" control={<Radio />} label="Over" />
                             <FormControlLabel value="under" control={<Radio />} label="Under" />
                         </RadioGroup>
                         <Button

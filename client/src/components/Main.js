@@ -2,6 +2,7 @@ import Typography from '@mui/material/Typography'
 import dawg from "../assets/dawg.png"
 
 function Main({ user, userPicks }) {
+    console.log(userPicks)
     return (
         <>
             <div
@@ -23,7 +24,8 @@ function Main({ user, userPicks }) {
             <div
                 style={{position: 'absolute', top:'65%'}} 
                 >
-                Your Picks
+                Your Picks:
+                {/* {user.id === user_pick.user.id ? } */}
             </div>
         </>
     )
